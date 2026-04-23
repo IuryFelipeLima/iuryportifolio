@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produto - Minha Loja Online</title>
+  <link rel="stylesheet" href="cssbotao">
+</head>
+<body>
+  <div class="particles" id="particles"></div>
+  
+  <div class="container">
+    <div class="emoji">👋</div>
+    <h1>Olá, mundo!</h1>
+    <p>Bem-vindo à página do produto! Esta é uma demonstração de como os botões direcionam para uma nova página com target="_parent".</p>
+    <p>Em breve, aqui você encontrará todos os detalhes do produto selecionado, opções de compra e muito mais!</p>
+    <a href="index.html" class="btn-back" target="_parent">← Voltar para a Loja</a>
+  </div>
+
+  <script>
+    // Criar partículas animadas no fundo
+    function createParticles() {
+      const particlesContainer = document.getElementById('particles');
+      const particleCount = 30;
+
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        
+        const size = Math.random() * 4 + 2;
+        const x = Math.random() * window.innerWidth;
+        const y = Math.random() * window.innerHeight;
+        const delay = Math.random() * 6;
+        
+        particle.style.width = size + 'px';
+        particle.style.height = size + 'px';
+        particle.style.left = x + 'px';
+        particle.style.top = y + 'px';
+        particle.style.animationDelay = delay + 's';
+        
+        particlesContainer.appendChild(particle);
+      }
+    }
+
+    // Inicializar partículas quando a página carregar
+    window.addEventListener('load', createParticles);
+
+    // Efeito de digitação para o título
+    function typeWriter() {
+      const text = "Olá, mundo!";
+      const element = document.querySelector('h1');
+      let i = 0;
+      
+      element.textContent = '';
+      
+      function type() {
+        if (i < text.length) {
+          element.textContent += text.charAt(i);
+          i++;
+          setTimeout(type, 150);
+        }
+      }
+      
+      setTimeout(type, 500);
+    }
+
+    // Iniciar efeito de digitação
+    window.addEventListener('load', typeWriter);
+  </script>
+</body>
+</html>
